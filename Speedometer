@@ -1,50 +1,38 @@
-// Write your code her*/
-
 import {Component} from 'react'
-import './index.css'
-class FruitsCounter extends Component {
-  state = {mn: 0, bn: 0}
-  mon = () => {
-    const {mn} = this.state
-    this.setState({mn: mn + 1})
-  }
-  bana = () => {
-    const {bn} = this.state
-    this.setState({bn: bn + 1})
-  }
 
+import './index.css'
+
+class Welcome extends Component {
+  state = {
+    word: false,
+  }
+  chang = () => {
+    const {word} = this.state
+    this.setState({word: true})
+  }
+  changB = () => {
+    const {word} = this.state
+    this.setState({word: false})
+  }
   render() {
-    const {mn, bn} = this.state
+    const {word} = this.state
     return (
       <div className="manBox">
-        <div className="Box">
-          <h1>
-            Bob ate <span className="sp">{mn}</span> mangoes{' '}
-            <span className="sp">{bn}</span> bananas
-          </h1>
-          <div className="img">
-            <div className="btnImg">
-              <img
-                className="imgbox"
-                src="https://assets.ccbp.in/frontend/react-js/mango-img.png"
-              />
-              <button onClick={this.mon} className="btn">
-                Eat Mange
-              </button>
-            </div>
-            <div className="btnImg">
-              <img
-                className="imgbox"
-                src="https://assets.ccbp.in/frontend/react-js/banana-img.png"
-              />
-              <button onClick={this.bana} className="btn">
-                Eat Banana
-              </button>
-            </div>
-          </div>
-        </div>
+        <h1 className="hading">Welcome</h1>
+        <p className="p">Thank you? Happy Learning</p>
+        {!word && (
+          <button className="btn" onClick={this.chang}>
+            Subscribed
+          </button>
+        )}
+        {word && (
+          <button className="btn" onClick={this.changB}>
+            Subscribed
+          </button>
+        )}
       </div>
     )
   }
 }
-export default FruitsCounter
+
+export default Welcome
